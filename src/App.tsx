@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route } from 'react-router-dom';
 import './App.css';
+import Login from "./Login/Login";
+import Registration from "./Registration/Registration";
+import Error404 from "./Error404/Error404";
+import PasswordRecovery from "./PasswordRecovery/PasswordRecovery";
+import EnterNewPassword from "./EnterNewPassword/EnterNewPassword";
+import ShowAllComponents from "./ShowAllComponents/ShowAllComponents";
+import Nav from './Nav/Nav';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav/>
+      <Route path={'/login'} render={()=><Login/>}/>
+      <Route path={'/registration'} render={()=><Registration/>}/>
+      <Route path={'/404'} render={()=><Error404/>}/>
+      <Route path={'/password-recovery'} render={()=><PasswordRecovery/>}/>
+      <Route path={'/enter-new-password'} render={()=><EnterNewPassword/>}/>
+      <Route path={'/show-all'} render={()=><ShowAllComponents/>}/>
     </div>
   );
 }
