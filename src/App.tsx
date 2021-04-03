@@ -8,6 +8,7 @@ import PasswordRecovery from "./PasswordRecovery/PasswordRecovery";
 import EnterNewPassword from "./EnterNewPassword/EnterNewPassword";
 import ShowAllComponents from "./ShowAllComponents/ShowAllComponents";
 import Nav from './Nav/Nav';
+import Profile from './Profile/Profile';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path={'/login'} render={()=><Login/>}/>
       <Route path={'/registration'} render={()=><Registration/>}/>
       <Route path={'/404'} render={()=><Error404/>}/>
+      <Route path={'/profile'} render={()=><Profile/>}/>
       <Route path={'/password-recovery'} render={()=><PasswordRecovery/>}/>
       <Route path={'/enter-new-password'} render={()=><EnterNewPassword/>}/>
       <Route path={'/show-all'} render={()=><ShowAllComponents/>}/>
