@@ -1,5 +1,5 @@
 import axios from "axios";
-import {LoginPostType, LoginResponseType} from "../Common/Types";
+import {LoginResponseType} from "../Common/Types";
 
 const instance = axios.create({
     baseURL: "http://localhost:7542/2.0/",
