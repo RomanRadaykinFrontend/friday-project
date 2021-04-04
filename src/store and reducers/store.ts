@@ -8,6 +8,7 @@ import {profileReducer} from "./profile-reducer";
 import { passwordRecoveryReducer } from "./password-recovery-reducer";
 import {showAllComponentsReducer} from "./show-all-components-reducer";
 import { enterNewPasswordReducer } from "./enter-new-password-reducer";
+import {appReducer} from "./app-reducer";
 
 
 const reducers = combineReducers({
@@ -16,7 +17,8 @@ const reducers = combineReducers({
     profile: profileReducer,
     showAllComponents: showAllComponentsReducer,
     passwordRecovery: passwordRecoveryReducer,
-    enterNewPassword: enterNewPasswordReducer
+    enterNewPassword: enterNewPasswordReducer,
+    app: appReducer
 })
 
 export type ReducersType = typeof reducers;

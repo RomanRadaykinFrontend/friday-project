@@ -18,3 +18,9 @@ export type LoginResponseType = {
 
     error?: string;
 }
+
+export type LogoutResponseType = {
+    info: `logOut success —ฅ/ᐠ.̫ .ᐟ\ฅ—`;
+
+    error: string;
+}

@@ -8,10 +8,9 @@ import { RootStateType } from "../store and reducers/store";
 const Login = () => {
 
     const dispatch = useDispatch();
-    const {isAuthorized,
-        errorMessage, data,
-        isFetching} = useSelector<RootStateType, LoginStateType>(state => state.login)
-    console.log(isAuthorized)
+    const {isAuth,
+        errorMessage} = useSelector<RootStateType, LoginStateType>(state => state.login);
+    const fetch = useSelector<RootStateType, boolean>(state => state.app.isFetching);
 
     const formik = useFormik({
         initialValues: {
@@ -24,17 +23,17 @@ const Login = () => {
         },
     });
 
-    if(isAuthorized === false){
-       return  <Redirect to='/404'/>
-    } else if(isAuthorized === true){
-        return  <Redirect to='/profile'/>
-    }
+    console.log(errorMessage)
 
+    if(isAuth){
+        return <Redirect to={'/profile'}/>
+    }
 
     return <div>
         Login
 
-        {isFetching && <div>Loading...</div>}
+        {fetch && <div>Loading...</div>}
+        {errorMessage && <div style={{color: 'red'}}>{errorMessage}</div>}
 
         <form onSubmit={formik.handleSubmit}>
             <label htmlFor="email">Email Address</label>
@@ -52,7 +51,7 @@ const Login = () => {
             <label htmlFor="rememberMe">Remember me</label>
             <input type="checkbox" name="rememberMe"
                    value="rememberMe" onChange={formik.handleChange}/>
-            <button type="submit" disabled={isFetching}>Submit</button>
+            <button type="submit" disabled={fetch}>Submit</button>
         </form>
 
     </div>
