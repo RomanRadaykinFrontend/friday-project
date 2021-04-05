@@ -6,6 +6,12 @@ const instance = axios.create({
     withCredentials: true
 })
 
+type ErrorType = {
+    email: string
+    error: string
+    in: string
+}
+
 export const loginAPI = {
     login(password: string, email: string, rememberMe: boolean){
         return instance.post<LoginResponseType>('auth/login', {password, email, rememberMe})
@@ -17,3 +23,10 @@ export const loginAPI = {
         return instance.delete<LogoutResponseType>('auth/me', {})
     }
 }
+
+export const registrationAPI = {
+    registration(email: string, password: string) {
+        return instance.post<any | ErrorType>('/auth/register', {email, password})
+    }
+}
+
