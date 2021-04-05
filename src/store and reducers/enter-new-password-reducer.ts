@@ -1,22 +1,54 @@
-import {Dispatch} from "redux";
-import {loginAPI} from "../dal/api";
+import {lostPasswordAPI, newPasswordAPI} from "../dal/api";
 
-export type EnterNewPasswordStateType = {
+
+
+let initialState = {
+    error: null,
+    redirect:false
 }
 
-const initialState = {} as EnterNewPasswordStateType
+export type  initType = {
+    error: string | null,
+    redirect:boolean
+}
 
-export const enterNewPasswordReducer = (state: typeof initialState = initialState, action: ActionType): EnterNewPasswordStateType => {
+export const enterNewPasswordReducer = (state: initType = initialState, action: ActionType): initType => {
     switch (action.type) {
-
+        case "SET-ERROR":
+            return {...state, error: action.responseError}
+        case "CHANGE-REDIRECT":
+            return {...state, redirect: action.redirectStatus}
         default:
             return state
     }
 }
 
-//TYPES
-type ActionType = any;
 
-//AC
+export const setResponseError = (responseError: string | null) => ({type: "SET-ERROR", responseError} as const)
+export const changeRedirectStatus = (redirectStatus: boolean) => ({type: "CHANGE-REDIRECT", redirectStatus} as const)
 
-//THUNK
+type ActionType = ReturnType<typeof setResponseError> | ReturnType<typeof changeRedirectStatus>
+
+
+
+export const postNewPasswordTC = (password:string,resetPasswordToken:string) =>
+    async (dispatch: any) => {
+        try {
+            await newPasswordAPI.postNewPassword(password,resetPasswordToken)
+            dispatch(changeRedirectStatus(true))
+        } catch (e) {
+            const error = e.response ? e.response.data.error : (e.message + ", more details in the console");
+            dispatch(setResponseError(error))
+        }
+    }
+
+export const postEmailTC = (email: string) =>
+    async (dispatch: any) => {
+        try {
+            await lostPasswordAPI.postEmail(email)
+            dispatch(changeRedirectStatus(true))
+        } catch (e) {
+            const error = e.response ? e.response.data.error : (e.message + ", more details in the console");
+            dispatch(setResponseError(error))
+        }
+    }
