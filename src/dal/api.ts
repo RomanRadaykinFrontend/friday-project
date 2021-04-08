@@ -28,3 +28,4 @@ export const newPasswordAPI = {
         return instance.post(`auth/set-new-password`, {password,resetPasswordToken}).then(response => response.data)
     }
 }
+//Ебать его рот
