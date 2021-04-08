@@ -3,8 +3,7 @@ import {Redirect, Route} from 'react-router-dom';
 import './App.css';
 import Login from "./Login/Login";
 import Error404 from "./Error404/Error404";
-import PasswordRecovery from "./PasswordRecovery/PasswordRecovery";
-import EnterNewPassword from "./EnterNewPassword/EnterNewPassword";
+
 import ShowAllComponents from "./ShowAllComponents/ShowAllComponents";
 import Nav from './Nav/Nav';
 import Profile from './Profile/Profile';
@@ -12,6 +11,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootStateType} from "./store and reducers/store";
 import { isAuthTC } from './store and reducers/login-reducer';
 import {Registration} from "./Registration/Registration";
+import { PasswordRecovery } from './PasswordRecovery/PasswordRecovery';
+import {EnterNewPassword} from "./EnterNewPassword/EnterNewPassword";
 
 function App() {
 
