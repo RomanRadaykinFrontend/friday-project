@@ -23,12 +23,12 @@ export const Registration = () => {
     const formik = useFormik({
         initialValues: {
             email: '',
-            password: ''
+            password: '',
+            confirmPassword: ''
         },
 
         onSubmit: values => {
             dispatch(registration(values.email, values.password))
-            formik.resetForm()
         },
 
         validate: (values) => {
@@ -41,8 +41,12 @@ export const Registration = () => {
 
             if (!values.password) {
                 errors.password = 'Required';
-            } else if (values.password.length < 5) {
-                errors.password = 'Password should be more 5 symbols';
+            } else if (values.password.length <= 7) {
+                errors.password = 'Password should be more 7 symbols';
+            }
+
+            if(values.password !== values.confirmPassword && values.confirmPassword !== "") {
+                errors.password = 'Passwords do not match'
             }
 
             return errors;
@@ -76,6 +80,16 @@ export const Registration = () => {
 
                     {formik.touched.password && formik.errors.password ?
                         <div className={s.error}>{formik.errors.password}</div> : null}
+                </div>
+
+                <div className={s.form_item}>
+                    <input type="password"
+                           placeholder="Введите пароль еще раз"
+                           {...formik.getFieldProps('confirmPassword')}
+                    />
+
+                    {formik.touched.confirmPassword && formik.errors.confirmPassword ?
+                        <div className={s.error}>{formik.errors.confirmPassword}</div> : null}
                 </div>
 
                 <button className={s.button} type='submit' disabled={isLoading}>Зарегистрироваться</button>
