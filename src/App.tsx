@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="App">
       <Nav/>
-        {!auth && <Redirect to={'/login'}/>}
+        {/*{!auth && <Redirect to={'/login'}/>}*/}
       <Route path={'/login'} render={()=><Login/>}/>
       <Route path={'/registration'} render={()=><Registration/>}/>
       <Route path={'/404'} render={()=><Error404/>}/>
