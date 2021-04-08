@@ -27,7 +27,7 @@ export const Registration = () => {
             confirmPassword: ''
         },
 
-        onSubmit: values => {
+        onSubmit: (values) => {
             dispatch(registration(values.email, values.password))
         },
 
