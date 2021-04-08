@@ -27,7 +27,7 @@
     box-sizing: border-box;
     outline: none;
     border: 2px solid black;
-
+    border-radius: 8px;
 }
 
 input {
@@ -41,6 +41,7 @@ input {
     border: 2px solid black;
     text-transform: uppercase;
     font-weight: bold;
+    border-radius: 8px;
 }
 
 .error,

@@ -45,7 +45,7 @@ export const Registration = () => {
                 errors.password = 'Password should be more 7 symbols';
             }
 
-            if(values.password !== values.confirmPassword && values.confirmPassword !== "") {
+            if (values.password !== values.confirmPassword && values.confirmPassword !== "") {
                 errors.password = 'Passwords do not match'
             }
 
