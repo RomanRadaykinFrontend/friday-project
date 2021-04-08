@@ -6,6 +6,12 @@ const instance = axios.create({
     withCredentials: true
 })
 
+type ErrorType = {
+    email: string
+    error: string
+    in: string
+}
+
 export const loginAPI = {
     login(password: string, email: string, rememberMe: boolean){
         return instance.post<LoginResponseType>('auth/login', {password, email, rememberMe})
@@ -18,13 +24,9 @@ export const loginAPI = {
     }
 }
 
-export const lostPasswordAPI = {
-    postEmail(email: string) {
-        return instance.post(`auth/forgot`, {email, from: "cards-admin <valdismin@gmail.com>", message: `<div style="background-color: lime; padding: 15px"> password recovery link: <a href='https://Valdismin.github.io/cards/#/new-pass/$token$'>link</a></div>`}).then(response => response.data)
+export const registrationAPI = {
+    registration(email: string, password: string) {
+        return instance.post<any | ErrorType>('/auth/register', {email, password})
     }
 }
-export const newPasswordAPI = {
-    postNewPassword(password:string,resetPasswordToken:string) {
-        return instance.post(`auth/set-new-password`, {password,resetPasswordToken}).then(response => response.data)
-    }
-}
+
