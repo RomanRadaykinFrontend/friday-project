@@ -13,6 +13,7 @@ import {RootStateType} from "./store and reducers/store";
 import { isAuthTC } from './store and reducers/login-reducer';
 import {Registration} from "./Registration/Registration";
 
+
 function App() {
 
        useEffect(() => {
