@@ -36,6 +36,6 @@ export const newPasswordAPI = {
 }
 export const lostPasswordAPI = {
     postEmail(email: string) {
-        return instance.post(`auth/forgot`, {email, from: "cards-admin <valdismin@gmail.com>", message: `<div style="background-color: lime; padding: 15px"> password recovery link: <a href='https://Valdismin.github.io/cards/#/new-pass/$token$'>link</a></div>`}).then(response => response.data)
+        return instance.post(`auth/forgot`, {email, from: "cards-admin <valdismin@gmail.com>", message: `<div style="background-color: lime; padding: 15px"> password recovery link: <a href='https://RomanRadaykinFrontend.github.io/friday-project/#/enter-new-password/$token$'>link</a></div>`}).then(response => response.data)
     }
 }

@@ -3,8 +3,8 @@ import {Redirect, Route} from 'react-router-dom';
 import './App.css';
 import Login from "./Login/Login";
 import Error404 from "./Error404/Error404";
-import PasswordRecovery from "./PasswordRecovery/PasswordRecovery";
-import EnterNewPassword from "./EnterNewPassword/EnterNewPassword";
+import {PasswordRecovery} from "./PasswordRecovery/PasswordRecovery";
+import {EnterNewPassword} from "./EnterNewPassword/EnterNewPassword";
 import ShowAllComponents from "./ShowAllComponents/ShowAllComponents";
 import Nav from './Nav/Nav';
 import Profile from './Profile/Profile';
@@ -31,7 +31,7 @@ function App() {
       <Route path={'/404'} render={()=><Error404/>}/>
       <Route path={'/profile'} render={()=><Profile/>}/>
       <Route path={'/password-recovery'} render={()=><PasswordRecovery/>}/>
-      <Route path={'/enter-new-password'} render={()=><EnterNewPassword/>}/>
+      <Route path={'/enter-new-password/:token'} render={()=><EnterNewPassword/>}/>
       <Route path={'/show-all'} render={()=><ShowAllComponents/>}/>
     </div>
   );
