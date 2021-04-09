@@ -1,6 +1,6 @@
 {
-  "name": "friday-project",
   "homepage": "https://RomanRadaykinFrontend.github.io/friday-project",
+  "name": "friday-project",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

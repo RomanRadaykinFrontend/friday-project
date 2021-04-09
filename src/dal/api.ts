@@ -2,8 +2,8 @@ import axios from "axios";
 import {LoginResponseType, LogoutResponseType} from "../Common/Types";
 
 const instance = axios.create({
-    baseURL: 'https://neko-back.herokuapp.com/2.0'
-    //withCredentials: true
+    baseURL: 'https://neko-back.herokuapp.com/2.0',
+    withCredentials: true
 })
 
 /*"http://localhost:7542/2.0/"*/
@@ -38,6 +38,6 @@ export const newPasswordAPI = {
 }
 export const lostPasswordAPI = {
     postEmail(email: string) {
-        return instance.post(`auth/forgot`, {email, from: "cards-admin <valdismin@gmail.com>", message: `<div style="background-color: lime; padding: 15px"> password recovery link: <a href='https://RomanRadaykinFrontend.github.io/#/enter-new-password/$token$'>link</a></div>`}).then(response => response.data)
+        return instance.post(`auth/forgot`, {email, from: "cards-admin <valdismin@gmail.com>", message: `<div style="background-color: lime; padding: 15px"> password recovery link: <a href='https://RomanRadaykinFrontend.github.io/friday-project/#/enter-new-password/$token$'>link</a></div>`}).then(response => response.data)
     }
 }

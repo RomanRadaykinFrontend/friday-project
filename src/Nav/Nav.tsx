@@ -1,16 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import style from'./Nav.module.css'
+import {PATH} from "../routes/Routes";
 
 const Nav = () => {
     return <nav className={style.nav}>
-        <NavLink to={'/login'}>Login </NavLink>
-        <NavLink to={'/registration'}>Registration</NavLink>
-        <NavLink to={'/profile'}>Profile</NavLink>
-        <NavLink to={'/404'}>Error404</NavLink>
-        <NavLink to={'/password-recovery'}>Password recovery</NavLink>
-        <NavLink to={'/enter-new-password/:token'}>New password</NavLink>
-        <NavLink to={'/show-all'}>Show all</NavLink>
+        <NavLink to={PATH.LOGIN}>Login </NavLink>
+        <NavLink to={PATH.REGISTRATION}>Registration</NavLink>
+        <NavLink to={PATH.PROFILE}>Profile</NavLink>
+        <NavLink to={PATH.RESET_PASS}>Password recovery</NavLink>
+        <NavLink to={PATH.NEW_PASS}>New password</NavLink>
+        <NavLink to={PATH.TEST}>Show all</NavLink>
     </nav>
 }
 
